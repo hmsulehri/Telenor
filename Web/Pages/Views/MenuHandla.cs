@@ -12,17 +12,17 @@ namespace Web.Pages.Views
             this.driver = driver;
         }
 
-        public IWebElement MenuContainer => driver.FindElement(By.CssSelector("#subsection_1"));
-        public IWebElement HrefBroadband => driver.FindElement(By.CssSelector("#subsection_1 > div > div:nth-child(4) > a"));
+        public IWebElement HandlaMenu => driver.FindElement(By.CssSelector("#subsection_1"));
+        public IWebElement Bredbandsabonnemang => driver.FindElement(By.CssSelector("#subsection_1>div>div:nth-child(4)>ul>li:nth-child(2)>a"));
 
         public Boolean IsDisplayed()
         {
-            return MenuContainer.Displayed;
+            return HandlaMenu.Displayed;
         }
 
         public void ClickOnBroadband()
         {
-            HrefBroadband.Click();
+            Bredbandsabonnemang.Click();
         }
     }
 }
