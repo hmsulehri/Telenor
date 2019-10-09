@@ -61,30 +61,28 @@ namespace Web.Pages
             }
         }
 
-        protected bool IsElementClicked(IWebElement element, By by)
+        protected bool ElementClicked(IWebElement element, By by)
         {
             try
             {
                 element.FindElement(by).Click();
                 return true;
             }
-            catch (NoSuchElementException e)
+            catch (NoSuchElementException)
             {
-                Console.WriteLine(e.StackTrace);
                 return false;
             }
         }
 
-        protected bool IsElementClicked(By by)
+        protected bool ElementClicked(By by)
         {
             try
             {
                 driver.FindElement(by).Click();
                 return true;
             }
-            catch (NoSuchElementException e)
+            catch (NoSuchElementException)
             {
-                Console.WriteLine(e.StackTrace);
                 return false;
             }
         }
@@ -97,9 +95,8 @@ namespace Web.Pages
 
                 return true;
             }
-            catch (WebDriverTimeoutException e)
+            catch (WebDriverTimeoutException)
             {
-                Console.WriteLine(e.StackTrace);
                 return false;
             }
         }

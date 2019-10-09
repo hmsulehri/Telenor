@@ -30,9 +30,9 @@ namespace Web.Pages
 
         public void SelectAddressFromList()
         {
-            Assert.IsTrue(WaitUntilElementVisible(By.CssSelector("div.address-search-field__autocomplete__list>ul"), 2));
-            Assert.IsTrue(WaitUntilElementVisible(By.CssSelector("div.address-search-field__autocomplete__list>ul>li:nth-child(1)"), 2));
-            Assert.IsTrue(IsElementClicked(By.CssSelector("div.address-search-field__autocomplete__list>ul>li:nth-child(1)")));
+            WaitUntilElementVisible(By.CssSelector("div.address-search-field__autocomplete__list>ul"), 2);
+            WaitUntilElementVisible(By.CssSelector("div.address-search-field__autocomplete__list>ul>li:nth-child(1)"), 2);
+            ElementClicked(By.CssSelector("div.address-search-field__autocomplete__list>ul>li:nth-child(1)"));
         }
 
         public void SelectLghFromList()
@@ -41,14 +41,11 @@ namespace Web.Pages
             {
                 var dropDown = driver.FindElement(By.CssSelector(".dropdown-form-field__dropdown"));
                 dropDown.Click();
-
                 dropDown.FindElement(By.CssSelector("option:nth-child(2)")).Click();
             }
 
             WaitUntilElementVisible(By.CssSelector(".offers-address-search-result__access-types__access-type__products.trailer"), 2);
-
             IReadOnlyCollection<IWebElement> elements = driver.FindElements(By.CssSelector(".offers-address-search-result__access-types__access-type__products.trailer > div button"));
-            Console.WriteLine("Total elements are = " + elements.Count);
             Assert.IsTrue(elements.Count > 0);
         }
 
